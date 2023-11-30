@@ -46,6 +46,30 @@ dim(df)
 
 #-----------------------
 #Eliminar elementos
+df$aprobado <- NULL
+dim(df)
+
+names(df)
+names(df)[2]<- "Nombre y apellido"
+names(df)
+names(df)[2]<- "Nombre"
+names(df)
+
+
+#-----------------------
+#Coercion
+df_numeros <- data.frame(A=1:10, B=11:20)
+mat <- as.matrix(df_numeros)
+mat
+class(mat)
+
+#Convertir df a matriz
+mat2 <- as.matrix(df)
+mat2
+#Todo se ha transformado a character (casting de numeros)
+
+df_numeros2 <- as.data.frame(mat)
+df_numeros2
 
 
 
