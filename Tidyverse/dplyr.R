@@ -1,0 +1,7 @@
+install.packages("dplyr")
+install.packages("heplots")
+install.packages("broom")
+library(broom)
+library(heplots)
+library(dplyr)
+data(Diabetes)
