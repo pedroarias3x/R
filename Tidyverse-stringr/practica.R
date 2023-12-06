@@ -31,7 +31,13 @@ str_sub(frutas[3],1,-1) <- "mango"
 frutas <- str_replace(frutas,"paraguayo","naranja")
 frutas
 
-
+#Collapse - une todos los elementos como le digas - Dimension 1
+frutas_unidas <- str_c(frutas, collapse = ",")
+frutas_unidas
+#Quitar duplicados
+str_unique(frutas)
+frutas_separadas <- str_split(frutas_unidas, ",")
+frutas_separadas
 
 
 
