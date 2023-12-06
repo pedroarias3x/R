@@ -1,9 +1,11 @@
 #Instalacion de las librerias
 install.packages("ggplot2")
 install.packages("gapminder")
+
 install.packages("dplryr")
 library(ggplot2)
 library(gapminder)
+
 library(dplyr)
 
 
@@ -22,3 +24,5 @@ ggplot(data = spain,
         labs(title = "Evolucion esperanza de vida en España",
              x = "Años",
              y = "Esperanza de vida")
+
+country <- gapminder %>% select(country)
