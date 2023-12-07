@@ -2,10 +2,9 @@
 install.packages("ggplot2")
 install.packages("gapminder")
 
-install.packages("dplryr")
+install.packages("dplyr")
 library(ggplot2)
 library(gapminder)
-
 library(dplyr)
 
 
@@ -25,4 +24,29 @@ ggplot(data = spain,
              x = "Años",
              y = "Esperanza de vida")
 
-country <- gapminder %>% select(country)
+country <- gapminder %>% select(country,continent) %>%
+            group_by(continent) %>% filter(!duplicated(country))
+
+ggplot(data = country) +
+      geom_bar(aes(y = continent), fill = "blue") +
+      labs(title = "Paises por continente",
+           x = "Continente",
+           y = "Nº Paises")
+
+europe <- filter(gapminder, continent == "Europe")
+
+head(europe)
+
+#Almacenamos en variables para mantener el grafico inalterable
+point <- ggplot(data = europe, aes(x = year, y = lifeExp)) +
+      geom_point(aes(color=gdpPercap, size = pop), alpha = 3/5) +
+      labs(title = "Evolucion esperanza de vida en europa",
+       x = "Años",
+       y = "Esperanza de vida")+
+      theme(panel.background = element_blank()) 
+
+point
+
+
+
+
